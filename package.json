@@ -1,0 +1,32 @@
+{
+  "name": "webbeast-content",
+  "author": "Yuval Bar Levi",
+  "scripts": {
+    "guide": "reveal-md ./WEBBEAST_CODE_GUIDE.md",
+    "m1.1": "reveal-md ./module1_fundamentals/m1.lesson01.md",
+    "m1.2": "reveal-md ./module1_fundamentals/m1.lesson02.md  --theme league",
+    "m1.3": "reveal-md ./module1_fundamentals/m1.lesson03.md  --theme serif",
+    "m1.4": "reveal-md ./module1_fundamentals/m1.lesson04.md  --theme sky",
+    "m1.5": "reveal-md ./module1_fundamentals/m1.lesson05.md  --theme night",
+    "m1.6": "reveal-md ./module1_fundamentals/m1.lesson06.md  --theme night",
+    "m1.7": "reveal-md ./module1_fundamentals/m1.lesson07.md  --theme simple",
+    "m1.8": "reveal-md ./module1_fundamentals/m1.lesson08.md  --theme solarized",
+    "m2.1": "reveal-md ./module2_frontend/m2.lesson01.md",
+    "m2.2": "reveal-md ./module2_frontend/m2.lesson02.md  --theme serif",
+    "m2.3": "reveal-md ./module2_frontend/m2.lesson03.md  --theme serif",
+    "m2.4": "reveal-md ./module2_frontend/m2.lesson04.md  --theme sky",
+    "m2.5": "reveal-md ./module2_frontend/m2.lesson05.md  --theme night",
+    "m2.6": "reveal-md ./module2_frontend/m2.lesson06.md  --theme solarized",
+    "m2.7": "reveal-md module2_frontend/m2.lesson07.md  --theme night",
+    "m2.8": "reveal-md module2_frontend/m2.lesson08.md  --theme night",
+    "m2.9": "reveal-md module2_frontend/m2.lesson09.md  --theme serif",
+    "m2.10": "reveal-md ./module2_frontend/m2.lesson10.md  --theme serif",
+    "m2.11": "reveal-md ./module2_frontend/m2.lesson11.md  --theme league",
+    "m2.12": "reveal-md ./module2_frontend/m2.lesson12.md  --theme league",
+    "m2.13": "reveal-md ./module2_frontend/m2.lesson13.md  --theme sky",
+    "m2.14": "reveal-md ./module2_frontend/m2.lesson14.md  --theme night",
+    "m2.15": "reveal-md ./module2_frontend/m2.lesson15.md  --theme night",
+    "m2.16": "reveal-md ./module2_frontend/m2.lesson16.md  --theme simple",
+    "m2.17": "reveal-md ./module2_frontend/m2.lesson17.md  --theme sky"
+  }
+}
