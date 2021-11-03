@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Flex Demo</title>
+    <meta charset="UTF-8" />
+    <style>
+      .container {
+        margin: auto;
+        width: 300px;
+        height: 500px;
+        border: 1px solid blue;
+      }
+      .left {
+        background-color: lightblue;
+        float: left;
+        width: 50%;
+        height: 100%;
+      }
+      .right {
+        background-color: lightgreen;
+        float: left;
+        width: 50%;
+        height: 80%;
+      }
+      .bottom {
+        /* background-color: gray; */
+        clear: both;
+        height: 20%;
+        width: 100%;
+      }
+    </style>
+  </head>
+
+  <body>
+    <ul id="list">
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+    <script>
+        const nodes = document.getElementById('list').children;
+        console.log('items', items);
+        
+        // const items = Array.from(nodes);
+        const items = [...nodes];
+
+        const items = document.querySelector('#list li');
+        const items = document.getElementsByTagName('li');
+        
+
+
+        items.forEach(function(item, index) {
+            item.innerHTML = 'mississipi ' + index;
+        })
+    </script>
+        <div class="container"></div>
+
+    <!-- <div class="container">
+      <div class="left"></div>
+      <div class="right"></div>
+      <div class="bottom"></div>
+    </div> -->
+  </body>
+</html>
