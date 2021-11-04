@@ -3,93 +3,121 @@
 
 <head>
     <title>More DOM manipulation</title>
-    <meta charset="UTF-8">
+    <meta charset="UTF-8" />
     <style>
         li.option {
             list-style: none;
         }
+
+        div#outputDiv>blockquote {
+            background-color: yellow;
+        }
+
+        #outputList li:nth-child(2) {
+            background-color: yellow;
+        }
     </style>
 </head>
 
-<body>
-<h1>More DOM manipulation</h1>
-<button>Just a button</button>
-<div id="outputDiv">Just an ordinary Div</div>
-<ul id="outputList">Just an empty list</ul>
+<body onload="doOnload()">
+    <h1>More DOM manipulation</h1>
+    <button>Just a button</button>
+    <div id="outputDiv">Just an ordinary Div</div>
+    <ul id="outputList">
+        Just an empty list
+    </ul>
 
-<template id="option-template">
-    <li class="option">
-        <input type="radio" name="movies">
-        <label></label>
-    </li>
-</template>
+    <template id="option-template">
+        <li class="option">
+            <input type="radio" name="movies" />
+            <label></label>
+        </li>
+    </template>
+    <input id="my-input" />
+    <script>
+        /*
+  2. Advanced DOM manipulation (innerHTML = string, templates, templates literals)
+  3. ES6 tips:  , Property Shorthand, Destructuring, spread
+  Events
+       */
 
-<script>
-    /*
-2. Advanced DOM manipulation (innerHTML = string, templates, templates literals)
-3. ES6 tips:  , Property Shorthand, Destructuring, spread
-Events
-     */
+        'use strict';
+        const dataObj = {
+            name: 'inigo montoya',
+            quote:
+                'Hello. My name is Inigo Montoya. You killed my father. Prepare to die.',
+        };
 
-    'use strict';
-    const dataObj = {
-        name: 'inigo montoya',
-        quote: 'Hello. My name is Inigo Montoya. You killed my father. Prepare to die.'
-    };
+        // innerHTML = string
+        document.getElementById('outputDiv').innerHTML = '<input type="color">';
 
-    // innerHTML = string
-    document.getElementById('outputDiv').innerHTML = '<input type="color">';
-
-    // es6 templates literals
-    document.getElementById('outputDiv').innerHTML = `
+        // es6 templates literals
+        document.getElementById('outputDiv').innerHTML = `
         <h2>${dataObj.name}</h2>
         <blockquote>${dataObj.quote}</blockquote>
     `;
 
-    // DOM fragments
-    // https://developer.mozilla.org/en-US/docs/Web/API/Document/createDocumentFragment
-    const fragment = document.createDocumentFragment();
-    const container  = document.getElementById('outputDiv'); // assuming ul exists
-    const movies = ['', 'Reloaded', 'Revolutions'];
+        // DOM fragments
+        // https://developer.mozilla.org/en-US/docs/Web/API/Document/createDocumentFragment
+        const fragment = document.createDocumentFragment();
+        const container = document.getElementById('outputList'); // assuming ul exists
+        const movies = ['', 'Reloaded', 'Revolutions'];
 
-    movies.forEach(function(movie) {
-        const p = document.createElement('li');
-        p.textContent = 'The Matrix' + (movie ? ' : ' + movie: '');
-        fragment.appendChild(p);
-    });
+        movies.forEach(function (movie) {
+            const p = document.createElement('li');
+            p.textContent = 'The Matrix' + (movie ? ' : ' + movie : '');
+            fragment.appendChild(p);
+        });
 
-    container.appendChild(fragment);
+        container.appendChild(fragment);
 
+        // html templates
+        const template = document.getElementById('option-template');
+        const listContainer = document.getElementById('outputList');
+        const someMovies = ['Reservoir Dogs', 'Pulp Fiction', 'Kill Bill'];
 
-    // html templates
-    const template = document.getElementById('option-template');
-    const listContainer  = document.getElementById('outputList');
-    const someMovies = ['Reservoir Dogs', 'Pulp Fiction', 'Kill Bill'];
+        someMovies.forEach((text, index) => {
+            const newNode = template.content.cloneNode(true);
+            newNode.querySelector('label').textContent = `${index} : ${text}`;
+            listContainer.appendChild(newNode);
+        });
 
-    someMovies.forEach((text, index) => {
-        const newNode = template.content.cloneNode(true);
-        newNode.querySelector('label').textContent  = `${index} : ${text}`;
-        listContainer.appendChild(newNode);
-    });
+        // ========== start working on cards memory-game ==========
 
+        const btn = document.querySelector('button');
 
-    // ========== start working on cards memory-game ==========
+        //    btn.onclick = function() {
+        //        const target = document.getElementById('outputDiv');
+        //        target.style.backgroundColor = 'lightGray';
+        //    };
 
-    const btn = document.querySelector('button');
+        function bgChange() {
+            const target = document.getElementById('outputDiv');
+            target.style.backgroundColor = 'lightGray';
+        }
 
-//    btn.onclick = function() {
-//        const target = document.getElementById('outputDiv');
-//        target.style.backgroundColor = 'lightGray';
-//    };
+        btn.addEventListener('click', bgChange);
 
-    function bgChange() {
-        const target = document.getElementById('outputDiv');
-        target.style.backgroundColor = 'lightGray';
-    }
+        function doOnload() {
+            console.log('loaded');
+        }
 
-    btn.addEventListener('click', bgChange);
+        function onInputFocus() {
+            console.log('input focus');
+        }
 
-</script>
+        const myInput = document.getElementById('my-input');
+        myInput.addEventListener('focus', onInputFocus);
+
+        document.addEventListener('keydown', (event) => {
+            console.log('keydown', event);
+            if (event.key === 'g') {
+                alert('g pressed!');
+            }
+        });
+        const input2 = document.getElementById('my-input');
+        console.log('log input 2', input2);
+    </script>
 </body>
 
 </html>
