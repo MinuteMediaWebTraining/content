@@ -116,7 +116,23 @@
             }
         });
         const input2 = document.getElementById('my-input');
-        console.log('log input 2', input2);
+
+
+        let counter = 0;
+
+        console.log('before setInterval');
+        
+        setTimeout(() => {
+            console.log('setTimeout function invoked');
+        }, 50)
+
+        // const intervalId = setInterval(() => {
+        //     console.log(`counter is ${counter}, intervalId is ${intervalId}`);
+        //     counter++;
+        // }, 1000)
+
+        console.log('after setInterval');
+
     </script>
 </body>
 
