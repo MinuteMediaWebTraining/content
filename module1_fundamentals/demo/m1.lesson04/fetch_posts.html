@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>advanced js</title>
+    <meta charset="UTF-8">
+    <style>
+    </style>
+</head>
+
+<body>
+    <button class="fetch">Click to Fetch</button>
+    <ul class="output"></ul>
+    
+    <script>
+        'use strict';
+        const promiseDemo = new Promise((resolve, reject) => {
+            setTimeout(() => {
+                resolve([1, 2, 3]);
+                // reject('I reject this!');
+            }, 3000)
+        });
+
+        promiseDemo.then((value) => {
+            console.log('value is ' + value)
+        })
+        // .catch((err) => {
+        //     console.error('error is ' + err)
+        // });
+
+
+        // =========== try fetch =========== //
+        const fetchButton = document.querySelector('button.fetch');
+
+        fetchButton.onclick = function () {
+            console.log('fetch users');
+
+            fetch('https://jsonplaceholder.typicode.com/posts')
+                .then(response => response.json())
+
+                .then(function (posts) {
+                    console.log('posts', posts);
+                    // todo: show first 10 posts
+                });
+        }
+
+            // try catch
+
+    </script>
+</body>
+
+</html>
