@@ -19,6 +19,10 @@
         #root {
             padding: 10px;
         }
+
+        .todo {
+          background-color: lightblue
+        }
     </style>
 </head>
 <body>
@@ -58,7 +62,8 @@
 
   function Todo({text}) {
     return (
-      <span>
+      // class vs className
+      <span className="todo">
         {text}
       </span>
     );
