@@ -34,11 +34,11 @@ function createStore(reducer, initState, middlewareArray) {
   };
 
   // Naive implementation of applyMiddleware
-  function applyMiddleware(store, middlewares) {
-    middlewares = middlewares.slice();
-    let dispatch = store.dispatch;
-    middlewares.forEach(middleware => (dispatch = middleware(store)(dispatch)));
-    return Object.assign({}, store, {dispatch})
+  function applyMiddleware(store, middleWares) {
+    middleWares = [...middleWares];
+    let { dispatch } = store;
+    middleWares.forEach(middleware => (dispatch = middleware(store)(dispatch)));
+    return { ...store, dispatch };
   }
 
   if (middlewareArray && Array.isArray(middlewareArray)) {

@@ -11,7 +11,7 @@ function createStore(reducer, initState, middleware) {
   }
 
   function dispatch(action) {
-    // TODO?
+    // TODO? (remember - middleware is optional)
     state = reducer(state, action);
     listeners.forEach(listener => {
       listener(state, action);
@@ -68,7 +68,7 @@ function itemsReducer(state = itemsInitState, action) {
     // log to console before dispatch
     console.log('store before dispatch', store.getState());
 
-    // dispatch - implement
+    // TODO: dispatch - implement
 
     // log to console after dispatch
     console.log('store before dispatch', store.getState());

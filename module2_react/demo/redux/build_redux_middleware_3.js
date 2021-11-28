@@ -53,6 +53,11 @@ function itemsReducer(state, action) {
   }
 }
 
+// alternatively: 
+// const logger = store => next => action => {
+//   return next(action)
+// }
+
 function logger(store) {
   return function (next) {
     return function (action) {
