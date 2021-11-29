@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>React Intro</title>
+  <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.21.1/babel.min.js"></script>
+  <style>
+    .red {
+      background-color: red
+    }
+  </style>
+</head>
+
+<body>
+  <button onclick="foo()">Click Me!</button>
+
+  <script type="text/babel">
+    'use strict';
+    function foo() {
+      document.querySelector('button').classList.add('red');
+
+      for (let i = 0; i <500000000; i++) {
+        Math.random() * 1000;
+      }
+    }
+  </script>
+</body>
+
+</html>
